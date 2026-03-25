@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Analysis — Targets</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #1a1a1a; margin: 0; padding: 24px; box-sizing: border-box; }
+  .wrap { background: #1a1a1a; border-radius: 16px; padding: 1.5rem; max-width: 520px; margin: 0 auto; }
+  h2 { margin: 0 0 4px; font-size: 22px; font-weight: 500; color: #f0f0f0; text-align: center; }
+  .sub { margin: 0 0 1.25rem; font-size: 12px; color: #888; text-align: center; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { background: #2a2a2a; border: 0.5px solid #3a3a3a; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .label { margin: 0; font-size: 16px; font-weight: 500; color: #f0f0f0; text-align: center; }
+  .ring-wrap { position: relative; width: 150px; height: 150px; }
+  .ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+  .val { font-size: 22px; font-weight: 500; color: #f0f0f0; }
+  .inc { font-size: 18px; font-weight: 500; color: #1D9E75; }
+  .inc-sm { font-size: 16px; font-weight: 500; color: #1D9E75; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>Quality Analysis</h2>
+  <p class="sub">Current → Targets</p>
+  <div class="grid">
+
+    <div class="card">
+      <p class="label">Classification</p>
+      <div class="ring-wrap">
+        <canvas id="b1" width="150" height="150"></canvas>
+        <div class="ring-center">
+          <span class="val">23%</span>
+          <span class="inc">+6%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="label">Scraping</p>
+      <div class="ring-wrap">
+        <canvas id="b2" width="150" height="150"></canvas>
+        <div class="ring-center" style="gap:0px">
+          <span class="val">61%</span>
+          <span class="inc-sm">+7%</span>
+          <span class="inc-sm">+17%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="label">Inter-ms</p>
+      <div class="ring-wrap">
+        <canvas id="b3" width="150" height="150"></canvas>
+        <div class="ring-center">
+          <span class="val">49%</span>
+          <span class="inc">+10%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="label">Intra-ms</p>
+      <div class="ring-wrap">
+        <canvas id="b4" width="150" height="150"></canvas>
+        <div class="ring-center">
+          <span class="val">46%</span>
+          <span class="inc">+11%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function mc(id, segments) {
+  new Chart(document.getElementById(id), {
+    type: 'doughnut',
+    data: { datasets: [{ data: segments.map(s=>s.v), backgroundColor: segments.map(s=>s.c), borderWidth: 0, borderRadius: [{ outerStart:6, outerEnd:0, innerStart:6, innerEnd:0 },0,0,0], hoverOffset: 0 }] },
+    options: { responsive:false, cutout:'72%', animation:{duration:900}, plugins:{legend:{display:false},tooltip:{enabled:false}}, events:[] }
+  });
+}
+mc('b1', [{v:23,c:'#D4537E'},{v:6,c:'#ED93B1'},{v:71,c:'#3a2a30'}]);
+mc('b2', [{v:61,c:'#1D9E75'},{v:7,c:'#5DCAA5'},{v:17,c:'#9FE1CB'},{v:15,c:'#2a3530'}]);
+mc('b3', [{v:49,c:'#534AB7'},{v:10,c:'#AFA9EC'},{v:41,c:'#2a2a3a'}]);
+mc('b4', [{v:46,c:'#BA7517'},{v:11,c:'#EF9F27'},{v:43,c:'#332a1a'}]);
+</script>
+</body>
+</html>
