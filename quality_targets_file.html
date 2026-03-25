@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quality Analysis — Targets</title>
 <style>
-  body { font-family: system-ui, sans-serif; background: #1a1a1a; margin: 0; padding: 24px; box-sizing: border-box; }
-  .wrap { background: #1a1a1a; border-radius: 16px; padding: 1.5rem; max-width: 520px; margin: 0 auto; }
-  h2 { margin: 0 0 4px; font-size: 22px; font-weight: 500; color: #f0f0f0; text-align: center; }
+  body { font-family: system-ui, sans-serif; background: #fff; margin: 0; padding: 24px; box-sizing: border-box; }
+  .wrap { background: #fff; border-radius: 16px; padding: 1.5rem; max-width: 520px; margin: 0 auto; }
+  h2 { margin: 0 0 4px; font-size: 22px; font-weight: 500; color: #1a1a1a; text-align: center; }
   .sub { margin: 0 0 1.25rem; font-size: 12px; color: #888; text-align: center; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card { background: #2a2a2a; border: 0.5px solid #3a3a3a; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-  .label { margin: 0; font-size: 16px; font-weight: 500; color: #f0f0f0; text-align: center; }
+  .card { background: #fff; border: 0.5px solid #e0e0e0; border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .label { margin: 0; font-size: 16px; font-weight: 500; color: #1a1a1a; text-align: center; }
   .ring-wrap { position: relative; width: 150px; height: 150px; }
   .ring-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
-  .val { font-size: 22px; font-weight: 500; color: #f0f0f0; }
+  .val { font-size: 22px; font-weight: 500; color: #1a1a1a; }
   .inc { font-size: 18px; font-weight: 500; color: #1D9E75; }
   .inc-sm { font-size: 16px; font-weight: 500; color: #1D9E75; }
 </style>
@@ -81,10 +81,10 @@ function mc(id, segments) {
     options: { responsive:false, cutout:'72%', animation:{duration:900}, plugins:{legend:{display:false},tooltip:{enabled:false}}, events:[] }
   });
 }
-mc('b1', [{v:23,c:'#D4537E'},{v:6,c:'#ED93B1'},{v:71,c:'#3a2a30'}]);
-mc('b2', [{v:61,c:'#1D9E75'},{v:7,c:'#5DCAA5'},{v:17,c:'#9FE1CB'},{v:15,c:'#2a3530'}]);
-mc('b3', [{v:49,c:'#534AB7'},{v:10,c:'#AFA9EC'},{v:41,c:'#2a2a3a'}]);
-mc('b4', [{v:46,c:'#BA7517'},{v:11,c:'#EF9F27'},{v:43,c:'#332a1a'}]);
+mc('b1', [{v:23,c:'#D4537E'},{v:6,c:'#ED93B1'},{v:71,c:'#FBEAF0'}]);
+mc('b2', [{v:61,c:'#1D9E75'},{v:7,c:'#5DCAA5'},{v:17,c:'#9FE1CB'},{v:15,c:'#E1F5EE'}]);
+mc('b3', [{v:49,c:'#534AB7'},{v:10,c:'#AFA9EC'},{v:41,c:'#EEEDFE'}]);
+mc('b4', [{v:46,c:'#BA7517'},{v:11,c:'#EF9F27'},{v:43,c:'#FAEEDA'}]);
 </script>
 </body>
 </html>
